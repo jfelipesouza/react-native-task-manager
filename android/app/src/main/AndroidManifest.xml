@@ -15,32 +15,6 @@
       android:allowBackup="false"
       android:theme="@style/AppTheme">
 
-       <meta-data  
-        android:name="com.dieam.reactnativepushnotification.notification_foreground"
-        android:value="false"/>
-                  
-      <meta-data  
-        android:name="com.dieam.reactnativepushnotification.notification_color"
-        android:resource="@color/primary"/> 
-
-      <receiver android:exported="true" android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationActions" />
-      <receiver android:exported="true" android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationPublisher" />
-      <receiver android:exported="true" android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationBootEventReceiver">
-        <intent-filter>
-          <action android:name="android.intent.action.BOOT_COMPLETED" />
-          <action android:name="android.intent.action.QUICKBOOT_POWERON" />
-          <action android:name="com.htc.intent.action.QUICKBOOT_POWERON"/>
-        </intent-filter>
-      </receiver>
-
-      <service
-        android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationListenerService"
-        android:exported="false" >
-        <intent-filter>
-          <action android:name="com.google.firebase.MESSAGING_EVENT" />
-        </intent-filter>
-      </service>
-
       <activity
         android:name=".MainActivity"
         android:label="@string/app_name"
@@ -54,5 +28,38 @@
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
       </activity>
+      
+        <meta-data  
+          android:name="com.dieam.reactnativepushnotification.notification_foreground"
+          android:value="false"/>
+        
+        <meta-data  
+          android:name="com.dieam.reactnativepushnotification.notification_color"
+          android:resource="@color/primary"/> 
+
+        <receiver 
+          android:exported="true" 
+          android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationActions" />
+        <receiver 
+          android:exported="true" 
+          android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationPublisher" />
+        <receiver 
+          android:exported="true" 
+          android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationBootEventReceiver">
+          
+          <intent-filter>
+            <action android:name="android.intent.action.BOOT_COMPLETED" />
+            <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+            <action android:name="com.htc.intent.action.QUICKBOOT_POWERON"/>
+          </intent-filter>
+        </receiver>
+
+        <service
+          android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationListenerService"
+          android:exported="false" >
+          <intent-filter>
+            <action android:name="com.google.firebase.MESSAGING_EVENT" />
+          </intent-filter>
+        </service>
     </application>
 </manifest>

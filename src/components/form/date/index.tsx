@@ -15,7 +15,7 @@ export const DateComponent: React.FC<DateProps> = ({
 }) => {
   const [visible, setVisible] = useState<boolean>(false);
 
-  const today = new Date();
+  const today = new Date(Date.now());
 
   const handleCancel = () => {
     setDate("", type);

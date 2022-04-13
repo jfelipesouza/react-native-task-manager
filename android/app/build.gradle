@@ -1,5 +1,7 @@
 apply plugin: "com.android.application"
 
+apply plugin: 'com.google.gms.google-services' // add to firebase core
+
 import com.android.build.OutputFile
 
 /**
@@ -275,6 +277,14 @@ dependencies {
 
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 
+    implementation 'com.google.firebase:firebase-analytics:17.3.0' // add to push notification
+
+    implementation project(':react-native-push-notification') // add to push notification
+
+    implementation platform('com.google.firebase:firebase-bom:29.3.0') // add to firebase
+
+    implementation 'com.google.firebase:firebase-analytics' // add to firebase
+
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
         exclude group:'com.facebook.fbjni'
     }
@@ -325,3 +335,5 @@ def isNewArchitectureEnabled() {
     // - Set an environment variable `ORG_GRADLE_PROJECT_newArchEnabled=true`
     return project.hasProperty("newArchEnabled") && project.newArchEnabled == "true"
 }
+
+apply plugin: 'com.google.gms.google-services' // add
