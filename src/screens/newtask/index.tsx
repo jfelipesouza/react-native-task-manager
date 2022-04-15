@@ -24,8 +24,10 @@ import {
   ButtonIcon,
 } from "./styled";
 import { TOAST_CONFIG } from "../../services/toast";
+
 import { RootParamsTasksRouter } from "../../@types/stack";
 import Divisor from "../../components/divisor";
+import { handleScheduleNotification } from "../../services/notification";
 
 const NewTask: React.FC = () => {
   const initialValues = {
@@ -41,12 +43,39 @@ const NewTask: React.FC = () => {
     typeof params === "undefined" ? (initialValues as SchemaProps) : params
   );
   const [enabled, setEnabled] = useState(false);
+  const [alert, setAlert] = useState({
+    year: 2022,
+    month: 3,
+    day: 14,
+    hour: 20,
+    minute: 18,
+  });
 
   const { colors, icons } = useTheme();
   const navigation = useNavigation();
 
   const handleInputChangeValue = (value: string | boolean, type: string) => {
     setForm({ ...form, [type]: value });
+  };
+
+  const handleSelectAlert = (value: string, type: string, date: Date) => {
+    if (type === "date") {
+      handleInputChangeValue(value, type);
+      setAlert({
+        ...alert,
+        year: date.getFullYear(),
+        month: date.getMonth(),
+        day: date.getDate(),
+      });
+    }
+    if (type === "alert") {
+      handleInputChangeValue(value, type);
+      setAlert({
+        ...alert,
+        hour: date.getHours(),
+        minute: date.getMinutes(),
+      });
+    }
   };
 
   const createID = () => {
@@ -91,6 +120,20 @@ const NewTask: React.FC = () => {
     return result;
   };
 
+  const registerAlertTask = () => {
+    const date = new Date(
+      alert.year,
+      alert.month,
+      alert.day,
+      alert.hour,
+      alert.minute,
+      0,
+      0
+    );
+
+    handleScheduleNotification(form.title, form.content, date.valueOf());
+  };
+
   const onSaveTask = async (data: SchemaProps) => {
     Keyboard.dismiss();
     const response = await createTask(data);
@@ -101,6 +144,7 @@ const NewTask: React.FC = () => {
         text1: "Parabéns",
         text2: "Nota salva",
       });
+      registerAlertTask();
     }
     if (response === false) {
       Toast.show({
@@ -188,21 +232,21 @@ const NewTask: React.FC = () => {
             type={"date"}
             label={"Dia"}
             mode={"date"}
-            setDate={(value: string, type: string) =>
-              handleInputChangeValue(value, type)
-            }
             display={"default"}
+            setDate={(value: string, type: string, date: Date) =>
+              handleSelectAlert(value, type, date)
+            }
           />
 
           <DateComponent
             buttonText={form.alert !== "" ? form.alert : "Selecione a hora"}
             type={"alert"}
             label={"Hora"}
+            display={"default"}
             mode={"time"}
-            setDate={(value: string, type: string) =>
-              handleInputChangeValue(value, type)
+            setDate={(value: string, type: string, date: Date) =>
+              handleSelectAlert(value, type, date)
             }
-            display={"clock"}
           />
 
           <CheckField

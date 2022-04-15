@@ -34,7 +34,7 @@ import { useNavigation } from "@react-navigation/native";
 export type ModalProps = {
   visible: Boolean;
   data: SchemaProps;
-  close: () => {};
+  close: () => void;
 };
 
 export const NoteModal: React.FC<ModalProps> = ({ visible, data, close }) => {
@@ -109,7 +109,7 @@ export const NoteModal: React.FC<ModalProps> = ({ visible, data, close }) => {
 
   return (
     <Modal transparent hardwareAccelerated={true} visible={showModal}>
-      <Container>
+      <Container activeOpacity={1} onPress={() => close()}>
         <Animated.View style={{ transform: [{ scale: scaleValue }] }}>
           <Card>
             <CardHeader>
@@ -184,7 +184,7 @@ export const NoteModal: React.FC<ModalProps> = ({ visible, data, close }) => {
             </ScrollView>
           </Card>
         </Animated.View>
-        <CloseIcon onPressOut={close} activeOpacity={0.5}>
+        <CloseIcon onPressOut={() => close()} activeOpacity={0.5}>
           <Icon
             name={"close-outline"}
             size={icons.xxxlg}

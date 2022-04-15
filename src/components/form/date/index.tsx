@@ -18,11 +18,11 @@ export const DateComponent: React.FC<DateProps> = ({
   const today = new Date(Date.now());
 
   const handleCancel = () => {
-    setDate("", type);
     setVisible(false);
   };
 
   const handleConfirm = (date: Date, type: string) => {
+    setVisible(false);
     if (type === "date") {
       const day = `${
         date.getDate() < 10 ? "0" + `${date.getDate()}` : date.getDate()
@@ -31,7 +31,7 @@ export const DateComponent: React.FC<DateProps> = ({
           ? "0" + `${date.getMonth() + 1}`
           : date.getMonth() + 1
       }`;
-      setDate(day, type);
+      setDate(day, type, date);
     }
     if (type === "alert") {
       const hour = `${
@@ -42,9 +42,8 @@ export const DateComponent: React.FC<DateProps> = ({
           : date.getMinutes()
       }`;
 
-      setDate(hour, type);
+      setDate(hour, type, date);
     }
-    setVisible(false);
   };
 
   const handleSelect = (event: DateTimePickerEvent, date?: Date) => {

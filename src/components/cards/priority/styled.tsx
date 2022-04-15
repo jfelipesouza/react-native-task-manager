@@ -1,8 +1,8 @@
 import styled from "styled-components/native";
 
 export const Container = styled.TouchableOpacity`
-  min-width: ${({ theme }) => `${theme.screenDimensions.width * 0.6}px`};
-  max-width: ${({ theme }) => `${theme.screenDimensions.width * 0.8}px`};
+  min-width: ${({ theme }) => `${theme.screenDimensions.width * 0.5}px`};
+  max-width: ${({ theme }) => `${theme.screenDimensions.width * 0.9}px`};
   background-color: ${({ theme }) => theme.colors.cardColor};
   min-height: ${({ theme }) => `${theme.screenDimensions.height * 0.1}px`};
   margin: ${({ theme }) => theme.space.md};

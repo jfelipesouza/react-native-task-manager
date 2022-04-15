@@ -17,6 +17,7 @@ const StackRoutes: React.FC = () => {
         headerShown: false,
         cardStyleInterpolator: CardStyleInterpolators.forModalPresentationIOS,
       }}
+      initialRouteName={"banana"}
     >
       <Screen name="home" component={Home} />
       <Screen name="newTask" component={NewTask} />

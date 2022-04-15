@@ -5,4 +5,5 @@ export type RootParamsTasksRouter = {
   home: undefined;
   newTask: SchemaProps;
   user: UserProps;
+  banana: undefined;
 };

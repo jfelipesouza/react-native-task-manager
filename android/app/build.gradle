@@ -285,6 +285,8 @@ dependencies {
 
     implementation 'com.google.firebase:firebase-analytics' // add to firebase
 
+
+    
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
         exclude group:'com.facebook.fbjni'
     }
@@ -335,5 +337,3 @@ def isNewArchitectureEnabled() {
     // - Set an environment variable `ORG_GRADLE_PROJECT_newArchEnabled=true`
     return project.hasProperty("newArchEnabled") && project.newArchEnabled == "true"
 }
-
-apply plugin: 'com.google.gms.google-services' // add

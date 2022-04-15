@@ -14,19 +14,11 @@ import Divisor from "../../components/divisor";
 import Header from "../../components/header";
 import { getTasks, getUser } from "../../services/database/models/bussiness";
 import { UserProps } from "../../@types/models/user";
-
 const Home: React.FC = () => {
   const [priority, setPriority] = useState<SchemaProps[]>([] as SchemaProps[]);
   const [complet, setComplet] = useState<SchemaProps[]>([] as SchemaProps[]);
   const [pending, setPending] = useState<SchemaProps[]>([] as SchemaProps[]);
   const [user, setUser] = useState<UserProps>({} as UserProps);
-
-  const testeValue = {
-    _id: "1",
-    image:
-      "https://media.bitdegree.org/storage/media/images/2018/10/The-Most-Essential-React-Interview-Questions.jpg",
-    name: "Felipe Souza",
-  };
 
   const navigation = useNavigation();
 
@@ -69,6 +61,10 @@ const Home: React.FC = () => {
             horizontal={true}
             showsHorizontalScrollIndicator={false}
             keyExtractor={(item: any) => item._id}
+            contentContainerStyle={{
+              alignItems: "center",
+              justifyContent: "center",
+            }}
           />
         </ListContainer>
 

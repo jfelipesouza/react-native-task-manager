@@ -1,30 +1,29 @@
 import PushNotification from "react-native-push-notification";
 
-type NotificationProps = {
-  title: string;
-  message: string;
-  date: Date;
-};
-
 export const showNotification = (title: string, message: string) => {
   PushNotification.localNotification({
     message: message,
     title: title,
     channelId: "alert",
+    smallIcon: "icon",
+    largeIcon: "icon",
   });
 };
 
-export const handleScheduleNotification = (
+export const handleScheduleNotification = async (
   title: string,
   message: string,
-  date: Date
+  date: number | string
 ) => {
   PushNotification.localNotificationSchedule({
-    date: date,
-    message,
-    title,
+    title: title,
+    message: message,
+    bigText: message,
     channelId: "alert",
+    smallIcon: "icon",
+    largeIcon: "icon",
     allowWhileIdle: true,
+    date: new Date(date),
   });
 };
 

@@ -14,7 +14,7 @@ export const PriorityCard: React.FC<CardProps> = ({ data }) => {
     <Container onPress={() => show()}>
       <Title numberOfLines={1}>{data.title}</Title>
       <Descrition numberOfLines={1}> {data.content}</Descrition>
-      <NoteModal close={() => show()} visible={visible} data={data} />
+      <NoteModal close={show} visible={visible} data={data} />
     </Container>
   );
 };
