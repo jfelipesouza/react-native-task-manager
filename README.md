@@ -55,12 +55,15 @@ Modelo criado usando o Figma.
 ## Download do projeto
 
 ### Android
-  - [arm64-v8a](https://github.com/jfelipesouza/react-native-task-manager/tree/main/example/apk/app-arm64-v8a-release.apk) <br/>
+   - <a href='https://github.com/jfelipesouza/react-native-task-manager/blob/main/example/apk/app-arm64-v8a-release.apk?raw=true' > 
+      arm64-v8a
+  </a>
   
-  - [armeabi-v7a](https://github.com/jfelipesouza/react-native-task-manager/tree/main/example/apk/app-armeabi-v7a-release.apk) <br/>
   
-  - [x86](https://github.com/jfelipesouza/react-native-task-manager/tree/main/example/apk/app-x86-release.apk) <br/>
+  - <a href='https://github.com/jfelipesouza/react-native-task-manager/blob/main/example/apk/app-armeabi-v7a-release.apk?raw=true' >armeabi-v7a</a>
   
-  - [x86_64](https://github.com/jfelipesouza/react-native-task-manager/tree/main/example/apk/app-x86_64-release.apk) <br/>
+  - [x86](https://github.com/jfelipesouza/react-native-task-manager/blob/main/example/apk/app-x86-release.apk?raw=true) <br/>
+  
+  - [x86_64](https://github.com/jfelipesouza/react-native-task-manager/blob/main/example/apk/app-x86_64-release.apk?raw=true) <br/>
 
-Caso não saiba qual a arquitetura do seu android clique [aqui]().
+Caso não saiba qual a arquitetura do seu android clique [aqui](https://github.com/jfelipesouza/react-native-task-manager/blob/main/example/apk/app-universal-release.apk?raw=true).
