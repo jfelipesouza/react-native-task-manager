@@ -55,12 +55,12 @@ Modelo criado usando o Figma.
 ## Download do projeto
 
 ### Android
-  - [arm64-v8a](./example/apk/app-arm64-v8a-release.apk) <br/>
+  - [arm64-v8a](https://github.com/jfelipesouza/react-native-task-manager/tree/main/example/apk/app-arm64-v8a-release.apk) <br/>
   
-  - [armeabi-v7a](./example/apk/app-armeabi-v7a-release.apk) <br/>
+  - [armeabi-v7a](https://github.com/jfelipesouza/react-native-task-manager/tree/main/example/apk/app-armeabi-v7a-release.apk) <br/>
   
-  - [x86](./example/apk/app-x86-release.apk) <br/>
+  - [x86](https://github.com/jfelipesouza/react-native-task-manager/tree/main/example/apk/app-x86-release.apk) <br/>
   
-  - [x86_64](./example/apk/app-x86_64-release.apk) <br/>
+  - [x86_64](https://github.com/jfelipesouza/react-native-task-manager/tree/main/example/apk/app-x86_64-release.apk) <br/>
 
 Caso não saiba qual a arquitetura do seu android clique [aqui]().
